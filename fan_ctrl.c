@@ -4,6 +4,7 @@
 
 #include "fan_ctrl.h"
 #include "fan_hw.h"
+#include "fan_ctrl_chr.h"
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Mikołaj Majewski");
@@ -11,18 +12,20 @@ MODULE_DESCRIPTION("Simple driver to turn on RP Pis fan on GPIO13");
 
 static int major;
 
-static int fan_ctrl_init(void)
+int fan_ctrl_init(void)
 {
     int status;
 
-    status = fan_gpio_init();
+    status = fan_init();
+
+    fan_on();
 
     return status;
 }
 
-static void fan_ctrl_exit(void)
+void fan_ctrl_exit(void)
 {
-    fan_gpio_off();
+    fan_deinit();
 }
 
 module_init(fan_ctrl_init);

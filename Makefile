@@ -1,6 +1,9 @@
-obj-m += fan_ctrl
+.PHONY: all clean
 
-fan_ctrl-objs := fan_ctrl.o fan_hw.o
+obj-m += fan_ctrl_drv.o
+
+fan_ctrl_drv-objs := fan_ctrl.o fan_hw.o fan_ctrl_chr.o
+
 
 all:
 	make -C /lib/modules/${shell uname -r}/build M=${PWD} modules

@@ -12,10 +12,11 @@
 #define SET_FAN_OFF 0
 
 
-int fan_gpio_init(void);
+int fan_init(void);
+int fan_deinit(void);
 
-int fan_gpio_on(void);
+int fan_on(void);
 
-int fan_gpio_off(void);
+int fan_off(void);
 
 #endif  /* FAN_HW_H */
