@@ -2,7 +2,7 @@
 
 obj-m += fan_ctrl_drv.o
 
-fan_ctrl_drv-objs := fan_ctrl.o fan_hw.o fan_ctrl_chr.o
+fan_ctrl_drv-objs := fan_ctrl.o fan_hw.o fan_chr.o
 
 
 all:
